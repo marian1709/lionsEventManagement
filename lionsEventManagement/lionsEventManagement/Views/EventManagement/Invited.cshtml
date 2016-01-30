@@ -1,0 +1,70 @@
+﻿@model IEnumerable<lionsEventManagement.Models.Participant>
+
+<h2>Eventverwaltung</h2>
+<h4>Rückmeldungen</h4>
+
+<p>
+    <a href="@Url.Action("Invite", "EventManagement", new {id = ViewBag.EventId})" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus"> </span>
+        Mitglieder einladen
+    </a>
+</p>
+
+<div class="">
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Vorname
+            </th>
+            <th>
+                E-Mailadresse
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (item.Participating == -1)
+            {
+                <text>
+                    <tr style="background-color: lightyellow">
+                </text>
+            }
+            else if (item.Participating == 0)
+            {
+                <text>
+                <tr style="background-color: lightcoral">
+                </text>
+            }
+            else if (item.Participating == 2)
+            {
+                <text>
+                <tr style="background-color: lightblue">
+                </text>
+            }
+            else
+            {
+                <text>
+                <tr style="background-color: lightgreen">
+                </text>
+            }
+            <td>@Html.DisplayFor(modelItem => item.Member.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Member.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Member.Email)</td>
+                <td><a href="@Url.Action("RemoveInvite", "EventManagement", new {eventId = ViewBag.EventId, participantId = item.ParticipantId})" class="btn btn-default"><span class="glyphicon glyphicon-minus"> </span></a></td>
+            @:</tr>
+        }
+    </table>
+</div>
+
+<div class="col-md-12">
+    <a href="@Url.Action("Index")" class="btn btn-default">
+        <span class="glyphicon glyphicon-remove"> </span>
+        Zurück
+    </a>
+</div>
+

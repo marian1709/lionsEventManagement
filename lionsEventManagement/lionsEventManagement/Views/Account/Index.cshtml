@@ -1,0 +1,51 @@
+﻿@model IEnumerable<lionsEventManagement.Models.EditUserViewModel>
+
+<h2>Benutzerverwaltung</h2>
+
+<p>
+    <a href="@Url.Action("Register")" class="btn btn-default">
+        <span class="glyphicon glyphicon-user"> </span>
+        Benutzer anlegen
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Bearbeiten", "Edit", new { id = item.UserName }) |
+                @Html.ActionLink("Rollen", "UserRoles", new { id = item.UserName }) |
+                @Html.ActionLink("Löschen", "Delete", new { id = item.UserName })
+            </td>
+        </tr>
+    }
+
+</table>

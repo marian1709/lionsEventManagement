@@ -1,0 +1,86 @@
+﻿@model lionsEventManagement.Models.ViewEventViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eventverwaltung</h2>
+
+<h4>Sind Sie sicher dass Sie dieses Event l&ouml;schen m&ouml;chten?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayTextFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReplyDeadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReplyDeadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstReminderMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstReminderMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondReminderMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondReminderMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptanceEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptanceEvent)
+        </dd>
+
+        @Html.DisplayFor(model => model.Address)
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash"> </span>
+                L&ouml;schen best&auml;tigen
+            </button>
+            <a href="@Url.Action("Index")" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove"> </span>
+                Abbrechen
+            </a>
+        </div>
+    }
+</div>

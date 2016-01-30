@@ -1,0 +1,39 @@
+﻿@model IEnumerable<lionsEventManagement.Models.Event>
+
+<h2>Eventverwaltung</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-default">
+        <span class="glyphicon glyphicon-glass"> </span>
+        Event anlegen
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Bearbeiten", "Edit", new { id=item.EventId }) |
+            @Html.ActionLink("Löschen", "Delete", new { id = item.EventId }) |
+            @Html.ActionLink("Details", "Details", new {id = item.EventId}) |
+            @Html.ActionLink("Rückmeldungen", "Invited", new { id = item.EventId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model lionsEventManagement.Models.ViewEventViewModel
+
+<h2>Eventverwaltung</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayTextFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReplyDeadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReplyDeadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstReminderMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstReminderMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondReminderMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondReminderMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptanceEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptanceEvent)
+        </dd>
+
+        @Html.DisplayFor(model => model.Address)
+    </dl>
+</div>
+
+<div>
+        <a href="@Url.Action("Index")" class="btn btn-default">
+            <span class="glyphicon glyphicon-remove"> </span>
+            Zur&uuml;ck
+        </a>
+    </div>

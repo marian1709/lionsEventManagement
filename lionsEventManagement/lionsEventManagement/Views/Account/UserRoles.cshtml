@@ -1,0 +1,46 @@
+﻿@model lionsEventManagement.Models.SelectUserRolesViewModel
+@{
+    ViewBag.Title = "User Roles";
+}
+
+<h2>Benutzerverwaltung</h2>
+<h4>Rollen f&uuml;r @Html.DisplayFor(model => model.UserName)</h4>
+<hr/>
+@using (Html.BeginForm("UserRoles", "Account", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.UserName)
+            </div>
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.FirstName)
+            </div>
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.LastName)
+            </div>
+        </div>
+
+        <table>
+            @Html.EditorFor(model => model.Roles)
+        </table>
+
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-ok"> </span>
+                    Rollen zuweisen
+                </button>
+                <a href="@Url.Action("Index")" class="btn btn-default">
+                    <span class="glyphicon glyphicon-remove"> </span>
+                    Abbrechen
+                </a>
+            </div>
+        </div>
+    </div>
+}

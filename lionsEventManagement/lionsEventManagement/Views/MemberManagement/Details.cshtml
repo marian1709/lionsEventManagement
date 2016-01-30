@@ -1,0 +1,44 @@
+﻿@model lionsEventManagement.Models.ViewMemberViewModel
+
+<h2>Mitgliederverwaltung</h2>
+
+<div>
+    <h4>Mitglied</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a href="@Url.Action("Edit", new { id = Model.MemberId })" class="btn btn-default">
+        <span class="glyphicon glyphicon-pencil"> </span>
+        Mitglied bearbeiten
+    </a>
+    <a href="@Url.Action("Index")" class="btn btn-default">
+        <span class="glyphicon glyphicon-remove"> </span>
+        Zur&uuml;ck
+    </a>
+</div>
